@@ -1,4 +1,7 @@
+.env
+__pycache__
 /aloka-vision-venv
+/venv
 /playground/.ipynb_checkpoints
 /playground/redis.ipynb
 /playground/models
