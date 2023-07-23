@@ -5,4 +5,5 @@ __pycache__
 /playground/.ipynb_checkpoints
 /playground/redis.ipynb
 /playground/models
+/app/insightface_model
 /playground/datasets
