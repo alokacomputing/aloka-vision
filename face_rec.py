@@ -16,7 +16,7 @@ password = os.getenv("REDIS_PASSWORD")
 r = redis.Redis(host=hostname, port=port, password=password)
 
 # configure face analysis
-app = FaceAnalysis(name="buffalo_l", root="playground", providers=["CUDAExecutionProvider"])
+app = FaceAnalysis(name="buffalo_sc", root="playground", providers=["CPUExecutionProvider"])
 app.prepare(ctx_id=0, det_size=(640, 640), det_thresh=0.5)
 
 
@@ -53,6 +53,8 @@ def ml_search_algorithm(dataframe, feature_column, test_vector, thresh=0.5):
     return name, role, similarity
 
 def face_prediction(test_image, dataframe, feature_column, thresh=0.5):
+    name='Unknown'
+    y1, y2, x1, x2 = 0, 0, 0, 0
     # 1. take test image and apply face detection using insightface
     results = app.get(test_image)
     test_copy = test_image.copy()
@@ -65,10 +67,12 @@ def face_prediction(test_image, dataframe, feature_column, thresh=0.5):
         # print(name, role, similarity)
 
     if name == 'Unknown':
-        cv2.rectangle(test_copy, (x1, y1), (x2, y2), (0, 0, 255), 2)
-        cv2.putText(test_copy, name, (x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 0, 255), 2)
+        color =(0,0,255) # bgr
     else:
-        cv2.rectangle(test_copy, (x1, y1), (x2, y2), (0, 255, 0), 2)
-        cv2.putText(test_copy, name, (x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+        color = (0,255,0)
+
+    cv2.rectangle(test_copy,(x1,y1),(x2,y2),color)
+
+    cv2.putText(test_copy,name,(x1,y1-10),cv2.FONT_HERSHEY_DUPLEX,0.7,color,2)
     
     return test_copy
