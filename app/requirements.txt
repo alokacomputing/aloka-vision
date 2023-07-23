@@ -5,5 +5,6 @@ scipy
 jupyter
 pillow
 opencv-python
+cv2
 sklearn
 scikit-learn
