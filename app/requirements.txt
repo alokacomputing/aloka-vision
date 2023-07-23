@@ -5,5 +5,8 @@ scipy
 jupyter
 pillow
 opencv-python-headless
+redis
+insightface
+onnxruntime-gpu
 sklearn
 scikit-learn
