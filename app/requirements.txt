@@ -11,4 +11,4 @@ onnxruntime-gpu
 sklearn
 scikit-learn
 load_dotenv
-webrtc_streamer
+streamlit-webrtc
