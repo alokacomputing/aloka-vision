@@ -4,6 +4,6 @@ matplotlib
 scipy
 jupyter
 pillow
-opencv-python
+opencv-python-headless
 sklearn
 scikit-learn
