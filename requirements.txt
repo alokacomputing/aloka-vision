@@ -8,7 +8,6 @@ opencv-python-headless
 redis
 insightface
 onnxruntime-gpu
-sklearn
 scikit-learn
 load_dotenv
 streamlit-webrtc
