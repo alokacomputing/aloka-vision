@@ -10,3 +10,4 @@ insightface
 onnxruntime-gpu
 sklearn
 scikit-learn
+load_dotenv
